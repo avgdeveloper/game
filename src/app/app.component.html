@@ -1,20 +1,80 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<div class="container top">
+  <div class="row">
 
+    <div class="col-12 text-center">
+      <img height="104px" width="1140px" src="/assets/images/Group6.png" alt="">
+      <img class="ind-5" src="/assets/images/Group4.png" alt="">
+    </div>
+
+    <div class="col-5 m-auto pb-4">
+      <p class="qun text-center"><span class="qun-number"><b>Q:1 </b></span> {{ questions.question}}</p>
+    </div>
+  </div>
+
+  <!-- box of the answers -->
+  <div>
+    <div class="row pd-div">
+      <button [ngClass]="{'btn-selectd':selected === answers[0],'btn-tr':correct  === answers[0],'btn-fs':incorrect === answers[0] }"
+        class="col-5 ml-auto mr-2 b-style btn-pos" (click)="select(answers[0])">
+        <span [hidden]="correct !== answers[0]" class="icon-pos"><img width="50px" src="/assets/images/Group.png" alt=""></span>
+        <span [hidden]="!incorrect || selected !== answers[0]" class="icon-pos"><img width="50px" src="/assets/images/Group3.png"
+            alt=""></span>
+        <p class="text-center b-style">{{answers[0]}}</p>
+      </button>
+      <button [ngClass]="{'btn-selectd':selected === answers[1],'btn-tr':correct  === answers[1],'btn-fs':incorrect === answers[1] }"
+        class="col-5 mr-auto ml-2 b-style btn-pos" (click)="select(answers[1])">
+        <span [hidden]="correct !== answers[1]" class="icon-pos"><img width="50px" src="/assets/images/Group.png" alt=""></span>
+        <span [hidden]="!incorrect|| selected !== answers[1]" class="icon-pos"><img width="50px" src="/assets/images/Group3.png"
+            alt=""></span>
+        <p class="text-center b-style">{{answers[1]}}</p>
+      </button>
+    </div>
+    <div class="row pd-div">
+      <button [ngClass]="{'btn-selectd':selected === answers[2],'btn-tr':correct  === answers[2],'btn-fs':incorrect === answers[2] }"
+        class="col-5 ml-auto mr-2 b-style btn-pos" (click)="select(answers[2])">
+        <span [hidden]="correct !== answers[2]" class="icon-pos"><img width="50px" src="/assets/images/Group.png" alt=""></span>
+        <span [hidden]="!incorrect|| selected !== answers[2]" class="icon-pos"><img width="50px" src="/assets/images/Group3.png"
+            alt=""></span>
+        <p class="text-center b-style text-center">{{ answers[2]}}</p>
+      </button>
+      <button [ngClass]="{'btn-selectd':selected === answers[3],'btn-tr':correct  === answers[3],'btn-fs':incorrect === answers[3] }"
+        class="col-5 mr-auto ml-2 b-style btn-pos" (click)="select(answers[3])">
+        <span [hidden]="correct !== answers[3]" class="icon-pos"><img width="50px" src="/assets/images/Group.png" alt=""></span>
+        <span [hidden]="!incorrect || selected !== answers[3]" class="icon-pos"><img width="50px" src="/assets/images/Group3.png"
+            alt=""></span>
+        <p class="text-center b-style">{{answers[3]}}</p>
+      </button>
+    </div>
+  </div>
+
+  <!--  Button for submition -->
+
+  <div class="row mb-5 mt-5">
+    <div class="col-3 pb-3 m-auto ">
+      <input (click)="okBtn()" [disabled]="!selected" class="btn btn-lg btn-block btn-ok" type="submit" [value]="btnString">
+    </div>
+  </div>
+
+  <div class="row mb-5">
+    <div class="col-3 m-auto">
+      <span class="pag-bullet num-0 ml-1 mr-3"></span>
+      <span class="pag-bullet num-1 mr-3"></span>
+      <span class="pag-bullet num-2 mr-3"></span>
+      <span class="pag-bullet num-3 mr-3"></span>
+      <span class="pag-bullet num-4 mr-3"></span>
+      <span class="pag-bullet num-5 mr-3"></span>
+      <span class="pag-bullet num-6 mr-3"></span>
+      <span class="pag-bullet num-7 mr-3"></span>
+      <span class="pag-bullet num-8 mr-3"></span>
+      <span class="pag-bullet num-9"></span>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <img width="1140px" src="/assets/images/Group5.png" alt="">
+    </div>
+  </div>
+
+
+</div>
